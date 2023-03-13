@@ -32,10 +32,15 @@ def convert(message: telebot.types.Message):
 		quote, base, amount = values
 		quote = quote.lower()
 		base = base.lower()
+		amount = int(amount)
+
+		if amount < 0:
+			raise ConvertionException("\nСумма конвертации введена неверна.")
+			
 		total_base = CryptoConverter.get_price(quote, base, amount)
 
 	except ConvertionException as e:
-		bot.reply_to(message, f"Ошибка пользоваля.\n{e}")
+		bot.reply_to(message, f"Ошибка пользователя.\n{e}")
 
 	except Exception as e:
 		bot.reply_to(message, f"Не удалось обработать команду.\n{e}")

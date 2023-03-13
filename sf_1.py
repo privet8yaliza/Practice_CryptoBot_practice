@@ -32,7 +32,7 @@ def convert(message: telebot.types.Message):
 		quote, base, amount = values
 		quote = quote.lower()
 		base = base.lower()
-		amount = int(amount)
+		amount = float(amount)
 
 		if amount < 0:
 			raise ConvertionException("\nСумма конвертации не может принимать отрицательное значение.\nПерейти к инструкции по команде: /help")

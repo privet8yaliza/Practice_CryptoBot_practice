@@ -43,7 +43,7 @@ def convert(message: telebot.types.Message):
 		bot.reply_to(message, f"Ошибка пользователя.\n{e}")
 
 	except Exception as e:
-		bot.reply_to(message, f"Не удалось обработать команду.\n{e}")
+		bot.reply_to(message, "Не удалось обработать команду.\n\nПерейти к инструкции по команде: /help")
 
 	else:
 		text = f"Стоимость {amount} {keys[quote]} в {keys[base]} = {total_base}"
